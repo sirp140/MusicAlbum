@@ -89,6 +89,38 @@ public class MusicCollection<albumArray>{
 		}
 	}
 	
+	public void removeSong(String title) {
+		int trackIndex = 0;
+		
+		for(int i = 0; i < numAlbums; i++) {
+			if(title.equals(albumArray[i].getTitle())) {
+				trackIndex = i;
+				
+				MusicAlbum[] newArray = new MusicAlbum[albumArray.length -1];
+				System.arraycopy(albumArray,  0,  newArray,  0, i);
+				System.arraycopy(albumArray, i+1, newArray, i, albumArray.length - i - 1);
+				
+				albumArray = newArray;
+				numAlbums--;
+			}
+		}
+		
+		
+	}
+	
+	
+	public String getAlbumsByArtist(String artist) {
+		String storeList = ""; //accumulator
+		
+		for (int i = 0; i < numAlbums; i++) {
+			if(artist.equals(albumArray[i].getArtist())) {
+				storeList += (albumArray[i].getTitle() + '\n');
+			}
+		}
+		return storeList;
+		
+	}
+	
 	
 
 }
