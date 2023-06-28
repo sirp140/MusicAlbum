@@ -29,8 +29,6 @@ public class MusicAlbum {
 	}
 	
 	
-	
-	
 	//setter methods
 	public void setTitle(String newTitle) {
 		title = newTitle;

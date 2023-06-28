@@ -1,7 +1,5 @@
 import java.io.*;
-
-
-public class AlbumCollection<albumArray>{
+public class MusicCollection<albumArray>{
 	
 	//the current number of album
 	private int numAlbums;
@@ -13,7 +11,7 @@ public class AlbumCollection<albumArray>{
 	
 	private boolean modified;
 	
-	public AlbumCollection() {
+	public MusicCollection() {
 		numAlbums  = 0;
 		albumArray = new MusicAlbum[7];
 	}
@@ -21,9 +19,10 @@ public class AlbumCollection<albumArray>{
 	public String toString() {
 		String printCollection = "";
 		
-		printCollection += ("numAlbums = " + numAlbums + '\n' + "albumArray.length = " + albumArray.length + '\n');
+		printCollection += ("Total Albums = " + numAlbums + '\n' + "album length = " + albumArray.length + '\n');
 		
 		for (int i = 0; i < numAlbums; i++) {
+			printCollection += ("album " + i + " title: " + albumArray[i].getTitle() + " artist: " + albumArray[i].getArtist() + " year: " + albumArray[i].getReleaseYear());
 			
 		}
 		
@@ -60,47 +59,6 @@ public class AlbumCollection<albumArray>{
 		
 	}
 	
-	
-	public void removeAlbum(String title) {
-		int trackIndex = 0;
-		
-		for(int i = 0; i < numAlbums; i++) {
-			if(title.equals(albumArray[i].getTitle())) {
-				trackIndex = i;
-				
-				MusicAlbum[] newArray = new MusicAlbum[albumArray.length -1];
-				System.arraycopy(albumArray,  0,  newArray,  0, i);
-				System.arraycopy(albumArray, i+1, newArray, i, albumArray.length - i - 1);
-				
-				albumArray = newArray;
-				numAlbums--;
-			}
-		}
-		
-		
-	}
-	
-	
-	public String getAlbumsByArtist(String artist) {
-		String storeList = ""; //accumulator
-		
-		for (int i = 0; i < numAlbums; i++) {
-			if(artist.equals(albumArray[i].getArtist())) {
-				storeList += (albumArray[i].getTitle() + '\n');
-			}
-		}
-		return storeList;
-		
-	}
-	
-	/*
-	public int getTotalRunningTime() {
-		
-	}
-	*/
-	
-	
-	
 	public void loadData (String filename)
 	{
 		try 
@@ -117,7 +75,7 @@ public class AlbumCollection<albumArray>{
 				//remove white spaces
 				//str = str.replaceAll("\\s+", "");
 		
-				//use the addOrModifyDVD method above to insert it into the collection. 
+				//use the addOrModify method above to insert it into the collection. 
 				String[] storeSplit = storeString.split(",");	
 				addOrModifyAlbum(storeSplit[0],storeSplit[1], storeSplit[2]);
 		     }
@@ -132,29 +90,5 @@ public class AlbumCollection<albumArray>{
 	}
 	
 	
-	
-	
-	public void save() {
-		try 
-		{
-			//Initializing Filewriter object.
-		      FileWriter writer = new FileWriter(sourceName);
-		      
-		     
-		      for(int i = 0; i < numAlbums; i++) 
-		      {
-					writer.write (albumArray[i].getTitle() + "," + albumArray[i].getArtist() + "," + albumArray[i].getReleaseYear());
-					writer.write("\r\n");
-			 }
-		      writer.close();
-			
-		}
-		catch (IOException e) 
-		{
-			System.out.println("An error occurred.");
-		    e.printStackTrace();
-		}	
-		
-	}
-	
+
 }
