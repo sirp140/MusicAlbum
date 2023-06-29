@@ -124,6 +124,29 @@ public class MusicCollection<albumArray>{
 		
 	}
 	
+	public void save() {
+		try 
+		{
+			//Initializing Filewriter object.
+		      FileWriter writer = new FileWriter(sourceName);
+		      
+		     
+		      for(int i = 0; i < numAlbums; i++) 
+		      {
+					writer.write (albumArray[i].getTitle() + "," + albumArray[i].getArtist() + "," + albumArray[i].getReleaseYear());
+					writer.write("\r\n");
+			 }
+		      writer.close();
+			
+		}
+		catch (IOException e) 
+		{
+			System.out.println("An error occurred.");
+		    e.printStackTrace();
+		}	
+		
+	}
+	
 	
 
 }

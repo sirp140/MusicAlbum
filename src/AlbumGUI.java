@@ -84,6 +84,17 @@ public class AlbumGUI {
 			 }
 			 
 		 });
+		 
+		//Create save button
+		 //
+		 JButton saveButton = new JButton("Save Song");
+		 
+		 saveButton.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent e) {
+				 doSave();
+			 }
+			 
+		 });
 
 		 
 	
@@ -107,7 +118,7 @@ public class AlbumGUI {
 		 
 		 
 		 panel.add(musicByArtistButton);
-		 //panel.add(saveButton);
+		 panel.add(saveButton);
 		// panel.add(exitButton);
 		 
 	     
@@ -187,7 +198,14 @@ public class AlbumGUI {
 
 		}
 	 
-	 
+	 private void doSave() {
+			
+		 	musicList.save();
+			JOptionPane.showMessageDialog(window, "Successfully wrote to the file.");
+			
+			
+		}
+
 
 	 
 	 
