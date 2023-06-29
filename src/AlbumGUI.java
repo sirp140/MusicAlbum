@@ -80,7 +80,7 @@ public class AlbumGUI {
 		 JButton musicByArtistButton = new JButton("Album By Artist");
 		 musicByArtistButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e) {
-				 getMusicByArist();
+				 getMusicByArtist();
 			 }
 			 
 		 });
@@ -164,7 +164,7 @@ public class AlbumGUI {
 			}
 			
 	                // Add or modify the DVD (assuming the rating and time are valid
-	                musicList.addOrModifyAlbum(title, title, releaseYear);
+	                musicList.addOrModifyAlbum(title, artist, releaseYear);
 	                
 	             
 	                
@@ -192,7 +192,7 @@ public class AlbumGUI {
 			 
 		 }
 	 
-	 private void getMusicByArist() {
+	 private void getMusicByArtist() {
 
 			// Request the artist name
 			String artistName = JOptionPane.showInputDialog("Enter artist:");
@@ -203,7 +203,7 @@ public class AlbumGUI {
 			
 	                String results = musicList.getAlbumsByArtist(artistName);
 	                JOptionPane.showMessageDialog(window, "Songs by " + artistName + ": \n"  + results);
-	                //JOptionPane.showMessageDialog(window, results);
+	                
 
 		}
 	 

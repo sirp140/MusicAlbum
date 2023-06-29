@@ -25,7 +25,7 @@ public class MusicCollection<albumArray>{
 		for (int i = 0; i < numAlbums; i++) {
 			
 			printCollection += ("Album " + index + ": " + albumArray[i].getTitle() + " by " + albumArray[i].getArtist() + 
-					" (" + albumArray[i].getReleaseYear() + ")" + '\n');
+					" (year: " + albumArray[i].getReleaseYear() + ")" + '\n');
 			index++;
 		}
 		
@@ -113,6 +113,8 @@ public class MusicCollection<albumArray>{
 	
 	
 	public String getAlbumsByArtist(String artist) {
+		
+		artist = artist.toUpperCase();
 		String storeList = ""; //accumulator
 		
 		for (int i = 0; i < numAlbums; i++) {
