@@ -95,6 +95,15 @@ public class AlbumGUI {
 			 }
 			 
 		 });
+		 
+		//create exit button
+		 JButton exitButton = new JButton("Exit");
+		 exitButton.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent e) {
+				 exit();
+			 }
+			 
+		 });
 
 		 
 	
@@ -119,7 +128,7 @@ public class AlbumGUI {
 		 
 		 panel.add(musicByArtistButton);
 		 panel.add(saveButton);
-		// panel.add(exitButton);
+		 panel.add(exitButton);
 		 
 	     
 		 //Add the panel to the window's content pane.
@@ -206,6 +215,13 @@ public class AlbumGUI {
 			
 		}
 
+	 private void exit() {
+			//exit the program
+			
+			JOptionPane.showMessageDialog(window, "Click ok to exit..");
+			System.exit(0);
+			
+		}
 
 	 
 	 
