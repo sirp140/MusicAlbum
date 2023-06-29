@@ -18,12 +18,15 @@ public class MusicCollection<albumArray>{
 	
 	public String toString() {
 		String printCollection = "";
+		int index = 1;
 		
 		printCollection += ("Total Albums = " + numAlbums + '\n' + "album length = " + albumArray.length + '\n');
 		
 		for (int i = 0; i < numAlbums; i++) {
-			printCollection += ("album " + i + " title: " + albumArray[i].getTitle() + " artist: " + albumArray[i].getArtist() + " year: " + albumArray[i].getReleaseYear());
 			
+			printCollection += ("Album " + index + ": " + albumArray[i].getTitle() + " by " + albumArray[i].getArtist() + 
+					" (" + albumArray[i].getReleaseYear() + ")" + '\n');
+			index++;
 		}
 		
 		return printCollection;

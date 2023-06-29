@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 //import javax.swing.event.ListSelectionEvent;
 //import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
@@ -66,21 +67,49 @@ public class AlbumGUI {
 			 }
 		 });
 		 
+		//Create Remove button
+		 JButton removeButton = new JButton("Remove Song");
+		 //add listener for remove button
+		 removeButton.addActionListener(new ActionListener(){
+			 public void actionPerformed(ActionEvent e) {
+				 doRemoveMusic();
+			 }
+		 });
+		 
+		//Create Albums by artist button
+		 JButton musicByArtistButton = new JButton("Album By Artist");
+		 musicByArtistButton.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent e) {
+				 getMusicByArist();
+			 }
+			 
+		 });
+
 		 
 	
-		 JLabel l = new JLabel("DVDs in the list:" + musicList.toString());
+		 //JLabel l = new JLabel("<html>DVDs in the list: <br>" + musicList.toString() + "</html>");
+		 JTextArea textArea = new JTextArea("Albums in the list:\n" + musicList.toString());
+		 textArea.setEditable(false);
+		 textArea.setLineWrap(true);
+		 textArea.setWrapStyleWord(true);
+
+		 JScrollPane scrollPane = new JScrollPane(textArea);
+		 scrollPane.setPreferredSize(new Dimension(300, 200)); // Set the preferred size to allow for proper line wrapping
+		 
+		 //panel.add(l);
+		 //panel.add(albumjList);
+		 
+		 panel.add(scrollPane, BorderLayout.CENTER);
 		 
 		 
-		 panel.add(l);
-		 panel.add(albumjList);
 		 panel.add(addButton);
-		 
-		 /*
 		 panel.add(removeButton);
+		 
+		 
 		 panel.add(musicByArtistButton);
-		 panel.add(saveButton);
-		 panel.add(exitButton);
-		 */
+		 //panel.add(saveButton);
+		// panel.add(exitButton);
+		 
 	     
 		 //Add the panel to the window's content pane.
 	      window.getContentPane().add(panel);
@@ -125,6 +154,41 @@ public class AlbumGUI {
 	                JOptionPane.showMessageDialog(window, "Updated Music Album collection: \n \n" + musicList);
 			
 		}
+	 
+	 private void doRemoveMusic() {
+			// Request the title
+				String title = JOptionPane.showInputDialog("Enter title");
+				if (title == null) {
+					return;		// dialog was cancelled
+				}
+				title = title.toUpperCase();
+				
+		                // Remove the matching DVD if found
+		                 musicList.removeSong(title);
+		                
+		                // Display current collection to the console for debugging
+		                JOptionPane.showMessageDialog(window, "Removing: " + title);
+		                JOptionPane.showMessageDialog(window,musicList);
+			 
+		 }
+	 
+	 private void getMusicByArist() {
+
+			// Request the artist name
+			String artistName = JOptionPane.showInputDialog("Enter artist:");
+			if (artistName == null) {
+				return;		// dialog was cancelled
+			}
+			artistName = artistName.toUpperCase();
+			
+	                String results = musicList.getAlbumsByArtist(artistName);
+	                JOptionPane.showMessageDialog(window, "Songs by " + artistName + ": \n"  + results);
+	                //JOptionPane.showMessageDialog(window, results);
+
+		}
+	 
+	 
+
 	 
 	 
 	 
