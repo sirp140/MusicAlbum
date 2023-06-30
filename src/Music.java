@@ -1,14 +1,14 @@
 
-public class MusicAlbum {
+public class Music {
 	
 	//Fields
 	private String title; //title of the music album
 	private String artist; //artist of the music album
 	private int releaseYear; //release year of the music album
-	//private String genre; //genre of the music album
+	
 	
 	//constructor:
-	public MusicAlbum(String albumTitle, String albumArtist, int albumReleaseYear) {
+	public Music(String albumTitle, String albumArtist, int albumReleaseYear) {
 		title = albumTitle;
 		artist = albumArtist;
 		releaseYear = albumReleaseYear;
@@ -41,8 +41,6 @@ public class MusicAlbum {
 	public void setReleaseYear(int newReleaseYear) {
 		releaseYear = newReleaseYear;
 	}
-	
-	
 	
 	public String toString() {
 		return title + " by " + artist + " (" + releaseYear + ")";

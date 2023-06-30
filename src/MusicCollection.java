@@ -1,30 +1,26 @@
 import java.io.*;
 public class MusicCollection<albumArray>{
 	
-	//the current number of album
+	
 	private int numAlbums;
-	
-	//array to contain the albums
-	private MusicAlbum[] albumArray;
-	
+	private Music[] albumArray;
 	private String sourceName;
-	
 	private boolean modified;
 	
 	public MusicCollection() {
 		numAlbums  = 0;
-		albumArray = new MusicAlbum[7];
+		albumArray = new Music[7];
 	}
 	
 	public String toString() {
 		String printCollection = "";
 		int index = 1;
 		
-		printCollection += ("Total Albums = " + numAlbums + '\n' + "album length = " + albumArray.length + '\n');
+		printCollection += ("Total Songs = " + numAlbums + '\n' + "Album length = " + albumArray.length + '\n');
 		
 		for (int i = 0; i < numAlbums; i++) {
 			
-			printCollection += ("Album " + index + ": " + albumArray[i].getTitle() + " by " + albumArray[i].getArtist() + 
+			printCollection += ("Song " + index + ": " + albumArray[i].getTitle() + " by " + albumArray[i].getArtist() + 
 					" (year: " + albumArray[i].getReleaseYear() + ")" + '\n');
 			index++;
 		}
@@ -50,12 +46,12 @@ public class MusicCollection<albumArray>{
 		if (status == false) {
 			//title is not found add album to collection
 			int yearReleased = Integer.parseInt(releaseYear);
-			albumArray[numAlbums] = new MusicAlbum(title, artist, yearReleased);
+			albumArray[numAlbums] = new Music(title, artist, yearReleased);
 			numAlbums++;
 		}
 		
 		if (numAlbums == 7) {
-			MusicAlbum[] createNewArr = new MusicAlbum[albumArray.length * 2];
+			Music[] createNewArr = new Music[albumArray.length * 2];
 		}
 		
 		//copy new array
@@ -99,7 +95,7 @@ public class MusicCollection<albumArray>{
 			if(title.equals(albumArray[i].getTitle())) {
 				trackIndex = i;
 				
-				MusicAlbum[] newArray = new MusicAlbum[albumArray.length -1];
+				Music[] newArray = new Music[albumArray.length -1];
 				System.arraycopy(albumArray,  0,  newArray,  0, i);
 				System.arraycopy(albumArray, i+1, newArray, i, albumArray.length - i - 1);
 				

@@ -9,10 +9,10 @@ public class AlbumManager {
     	String sourceName = "data.txt";
     	
         MusicCollection musicCollection = new MusicCollection();
-      //call loadData to read the file	
-      		musicCollection.loadData(sourceName);
+        //call loadData to read the file	
+      	musicCollection.loadData(sourceName);
         
         AlbumGUI albumGUI = new AlbumGUI(musicCollection);
-        //albumGUI.showWindow();
+        
     }
 }

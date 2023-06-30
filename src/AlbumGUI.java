@@ -1,8 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 //import javax.swing.event.ListSelectionEvent;
 //import javax.swing.event.ListSelectionListener;
@@ -15,19 +17,19 @@ public class AlbumGUI {
 	
 	private JFrame window;
 	final int WINDOW_WIDTH = 350; // Window width  
-	final static int WINDOW_HEIGHT = 250;      // Window height 
+	final static int WINDOW_HEIGHT = 250; // Window height 
 	private JPanel panel;
-	 
 	private static String[] arr = new String[5];
 	private static JList albumjList;
-	
 	String sourceName = "data.txt";
+	JLabel imageLabel = new JLabel();
 	 
 	 public AlbumGUI(MusicCollection ml)
 	 {
 		 musicList = ml;
 		 showWindow();
 	 }
+	 
 	 
 	 public void showWindow() {
 		 
@@ -39,24 +41,17 @@ public class AlbumGUI {
 		 
 		 //set the size
 		 window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-		 
 		 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 
 		 window.getContentPane().setLayout(new BoxLayout(window.getContentPane(), BoxLayout.Y_AXIS));
 		 
+		 //ImageIcon icon = new ImageIcon("musicCD.jpg");
+		 //imageLabel.setIcon(icon);
+		 
          panel = new JPanel();//panel to hold the components
+         panel.setBackground(Color.BLUE);
 		 
-		 albumjList = new JList(arr); //create the list
+		 //albumjList = new JList(arr); //create the list
 		 
-		 //readFile();
-		 
-		 //forTesting ftest = new forTesting(); //create object 
-		 
-        
-		 
-		// albumjList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		 
-		 //albumjList.addListSelectionListener((ListSelectionListener) new ListListener());
 		 
 		 //Create Add/Modify button
 		 JButton addButton = new JButton("Add/Modify Song");
@@ -86,9 +81,7 @@ public class AlbumGUI {
 		 });
 		 
 		//Create save button
-		 //
 		 JButton saveButton = new JButton("Save Song");
-		 
 		 saveButton.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e) {
 				 doSave();
@@ -105,10 +98,7 @@ public class AlbumGUI {
 			 
 		 });
 
-		 
-	
-		 //JLabel l = new JLabel("<html>DVDs in the list: <br>" + musicList.toString() + "</html>");
-		 JTextArea textArea = new JTextArea("Albums in the list:\n" + musicList.toString());
+		 JTextArea textArea = new JTextArea("Songs in the list:\n" + musicList.toString());
 		 textArea.setEditable(false);
 		 textArea.setLineWrap(true);
 		 textArea.setWrapStyleWord(true);
@@ -121,11 +111,8 @@ public class AlbumGUI {
 		 
 		 panel.add(scrollPane, BorderLayout.CENTER);
 		 
-		 
 		 panel.add(addButton);
 		 panel.add(removeButton);
-		 
-		 
 		 panel.add(musicByArtistButton);
 		 panel.add(saveButton);
 		 panel.add(exitButton);
@@ -136,8 +123,7 @@ public class AlbumGUI {
 		 
 		// Display the window
 		 window.pack();
-		 window.setVisible(true);
-		 
+		 window.setVisible(true);	 
 		 
 	 }
 	 
@@ -170,6 +156,7 @@ public class AlbumGUI {
 	                
 	                // Display current collection to the console for debugging
 	                //label1 = new JLabel("Adding/Modifying: " + title + "," + rating + "," + time);
+	                
 	                JOptionPane.showMessageDialog(window,"Adding/Modifying: " + title + "," + artist + "," + releaseYear);
 	                JOptionPane.showMessageDialog(window, "Updated Music Album collection: \n \n" + musicList);
 			
