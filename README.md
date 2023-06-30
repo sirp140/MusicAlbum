@@ -45,6 +45,6 @@ The `AlbumManager` class contains the `main()` method and serves as the entry po
 
 Note: The program expects album data to be stored in a file named "data.txt" in a specific format: each line should contain the album's title, artist, and release year separated by commas.
 
-##Video Walkthrough
+## Video Walkthrough
 
 
