@@ -46,9 +46,14 @@ The `AlbumManager` class contains the `main()` method and serves as the entry po
 Note: The program expects album data to be stored in a file named "data.txt" in a specific format: each line should contain the album's title, artist, and release year separated by commas.
 
 ## Video Walkthrough
-(![Screen Shot 2023-06-30 at 12 35 57 PM](https://github.com/sirp140/MusicAlbum/assets/85513412/9a739346-174b-4b6c-ade6-e33b749a3c6a)
+![Screen Shot 2023-06-30 at 12 35 57 PM](https://github.com/sirp140/MusicAlbum/assets/85513412/9a739346-174b-4b6c-ade6-e33b749a3c6a)
+
+
+
 
 ![Screen Shot 2023-06-30 at 12 37 35 PM](https://github.com/sirp140/MusicAlbum/assets/85513412/b32329d1-6eda-49af-b252-7ffe4d57bddc)
+
+
 
 
 ![Screen Shot 2023-06-30 at 12 38 17 PM](https://github.com/sirp140/MusicAlbum/assets/85513412/cb2486ba-26f4-48cf-9899-57bd7585de79)
