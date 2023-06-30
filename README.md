@@ -2,7 +2,7 @@
 
 This is a Java program that allows you to manage a collection of songs. It provides functionality to add or modify song, remove song, search songs by artist, and save the collection to a file.
 
-## MusicAlbum Class
+## Music Class
 
 The `MusicAlbum` class represents a single music album. 
 
